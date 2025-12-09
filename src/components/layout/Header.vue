@@ -38,6 +38,9 @@
                 <a v-if="menu.url" :href="menu.url" @click="closeMobileMenu">{{ menu.title }}</a>
               </template>
             </li>
+            <li>
+              <router-link to="/admin" @click="closeMobileMenu" class="admin-link">Admin</router-link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -184,6 +187,15 @@ onMounted(async () => {
 .dropdown a:hover {
   background: #f8f9fa;
   color: #007bff;
+}
+
+.admin-link {
+  color: #28a745 !important;
+  font-weight: 600;
+}
+
+.admin-link:hover {
+  color: #218838 !important;
 }
 
 @media (max-width: 768px) {

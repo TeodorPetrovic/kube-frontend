@@ -7,6 +7,13 @@ import TagPosts from '../views/TagPosts.vue';
 import StaticPage from '../views/StaticPage.vue';
 import NotFound from '../views/NotFound.vue';
 
+// Admin views
+import AdminDashboard from '../views/admin/Dashboard.vue';
+import AdminPostList from '../views/admin/PostList.vue';
+import AdminPostEditor from '../views/admin/PostEditor.vue';
+import AdminCategoryManager from '../views/admin/CategoryManager.vue';
+import AdminTagManager from '../views/admin/TagManager.vue';
+
 const routes = [
   {
     path: '/',
@@ -37,6 +44,37 @@ const routes = [
     path: '/page/:slug',
     name: 'StaticPage',
     component: StaticPage,
+  },
+  // Admin routes
+  {
+    path: '/admin',
+    name: 'AdminDashboard',
+    component: AdminDashboard,
+  },
+  {
+    path: '/admin/posts',
+    name: 'AdminPostList',
+    component: AdminPostList,
+  },
+  {
+    path: '/admin/posts/new',
+    name: 'AdminPostNew',
+    component: AdminPostEditor,
+  },
+  {
+    path: '/admin/posts/edit/:id',
+    name: 'AdminPostEdit',
+    component: AdminPostEditor,
+  },
+  {
+    path: '/admin/categories',
+    name: 'AdminCategories',
+    component: AdminCategoryManager,
+  },
+  {
+    path: '/admin/tags',
+    name: 'AdminTags',
+    component: AdminTagManager,
   },
   {
     path: '/:pathMatch(.*)*',

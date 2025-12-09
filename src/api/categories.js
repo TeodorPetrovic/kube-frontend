@@ -10,4 +10,13 @@ export default {
   getBySlug(slug) {
     return apiClient.get(`/categories/slug/${slug}`);
   },
+  create(category) {
+    return apiClient.post('/categories', category);
+  },
+  update(id, category) {
+    return apiClient.patch(`/categories/${id}`, category);
+  },
+  delete(id) {
+    return apiClient.delete(`/categories/${id}`);
+  },
 };

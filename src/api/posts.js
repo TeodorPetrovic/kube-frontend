@@ -10,4 +10,13 @@ export default {
   getById(id) {
     return apiClient.get(`/posts/${id}`);
   },
+  create(post) {
+    return apiClient.post('/posts', post);
+  },
+  update(id, post) {
+    return apiClient.patch(`/posts/${id}`, post);
+  },
+  delete(id) {
+    return apiClient.delete(`/posts/${id}`);
+  },
 };
