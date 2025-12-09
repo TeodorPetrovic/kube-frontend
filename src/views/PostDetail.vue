@@ -31,7 +31,7 @@
         <img :src="post.featuredImage" :alt="post.title" />
       </div>
       
-      <div class="post-content" v-html="post.content"></div>
+      <div class="post-content" v-html="sanitizeHtml(post.content)"></div>
       
       <div v-if="post.tags && post.tags.length > 0" class="post-tags">
         <strong>Tags:</strong>
@@ -62,6 +62,7 @@ import LoadingSpinner from '../components/LoadingSpinner.vue';
 import CommentsSection from '../components/CommentsSection.vue';
 import postsAPI from '../api/posts';
 import commentsAPI from '../api/comments';
+import { sanitizeHtml } from '../utils/sanitize';
 
 const route = useRoute();
 const post = ref(null);

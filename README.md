@@ -13,6 +13,7 @@ A professional, responsive blog frontend built with Vue 3 and Vite that integrat
 - 🔍 SEO-friendly
 - 📄 Static pages support
 - 🎯 Dynamic menu system
+- 🔒 XSS protection with DOMPurify
 
 ## Setup
 
@@ -46,6 +47,7 @@ src/
 │   └── layout/   # Layout components (Header, Footer)
 ├── views/         # Page components
 ├── router/        # Vue Router configuration
+├── utils/         # Utility functions (HTML sanitization)
 ├── App.vue        # Root component
 └── main.js        # Application entry point
 ```
@@ -71,9 +73,14 @@ The application integrates with the following API endpoints:
 - **Static Pages** - Custom pages
 - **404** - Not found page
 
+## Security
+
+The application uses DOMPurify to sanitize HTML content from the API before rendering to prevent XSS attacks. All user-generated content is sanitized before being displayed with `v-html`.
+
 ## Technologies
 
 - Vue 3 (Composition API)
 - Vue Router 4
 - Axios for API calls
+- DOMPurify for HTML sanitization
 - Vite for build tooling

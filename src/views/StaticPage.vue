@@ -14,7 +14,7 @@
         <h1>{{ page.title }}</h1>
       </header>
       
-      <div class="page-content" v-html="page.content"></div>
+      <div class="page-content" v-html="sanitizeHtml(page.content)"></div>
     </article>
   </div>
 </template>
@@ -24,6 +24,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import LoadingSpinner from '../components/LoadingSpinner.vue';
 import pagesAPI from '../api/pages';
+import { sanitizeHtml } from '../utils/sanitize';
 
 const route = useRoute();
 const page = ref(null);
