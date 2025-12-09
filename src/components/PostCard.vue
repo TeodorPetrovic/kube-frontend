@@ -52,7 +52,10 @@ const formatDate = (dateString) => {
 
 const truncateContent = (content) => {
   if (!content) return '';
-  const plainText = content.replace(/<[^>]*>/g, '');
+  // Create a temporary div to safely extract text content
+  const div = document.createElement('div');
+  div.innerHTML = content;
+  const plainText = div.textContent || div.innerText || '';
   return plainText.length > 150 ? plainText.substring(0, 150) + '...' : plainText;
 };
 </script>
